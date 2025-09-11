@@ -7,12 +7,26 @@ public class Char {
     int dexterity = 20;
     int intelligence = 20;
 
-    //1. isTypeValid method
-    //2. isNameValid min3 max20
-    //3. isLevelValid min1-max100
-    //4. isStrengthValid min0
-    //5. isDexterityValid min0
-    //6. isIntelligenceValid min0
+    boolean isNameValid() {
+        return name.length() >= 3 && name.length() <= 20;
+    }
 
-    //28.fejezet vége
+    boolean isLevelValid() {
+        return level >= 1 && level <= 100;
+    }
+
+    boolean isStrengthValid() {
+        return strength >= 0;
+    }
+
+    boolean isDexterityValid() {
+        return dexterity >= 0;
+    }
+
+    boolean isIntelligenceValid() {
+        return intelligence >= 0;
+    }
+
+
+
 }

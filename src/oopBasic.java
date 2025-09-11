@@ -1,24 +1,20 @@
 public class oopBasic {
     public static void main(String[] args) {
+        Date today = new Date();
+        today.setYear(2017);
+        today.setMonth(7);
+        today.setDay(9);
 
-        Date today = getToday();
+        System.out.println("A hónap helyes?: " + today.isMonthValid());
+        System.out.println("A nap helyes?: " + today.isDayValid());
+        System.out.println("ez egy szökőév?: " + today.isLeapYear());
 
-        boolean birthday = isBirthday(today);
-        if (birthday) {
-            System.out.println("Boldog szülinapot!");
+        Date yearToCheck = new Date();
+        yearToCheck.setMonth(1);
+        yearToCheck.setDay(1);
+        for (int year = 1900; year <= 2100; year++){
+            yearToCheck.setYear(year);
+            System.out.println(yearToCheck.getYear() + (yearToCheck.isLeapYear() ? " szökőév" : " nem szökőév"));
         }
-    }
-
-    static boolean isBirthday(Date date){
-        return date.month == 6 && date.day == 29;
-    }
-
-    static Date getToday(){
-        Date date = new Date();
-        date.year = 2020;
-        date.month = 6;
-        date.day = 29;
-
-        return date;
     }
 }
