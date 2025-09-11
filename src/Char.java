@@ -13,4 +13,6 @@ public class Char {
     //4. isStrengthValid min0
     //5. isDexterityValid min0
     //6. isIntelligenceValid min0
+
+    //28.fejezet vége
 }
