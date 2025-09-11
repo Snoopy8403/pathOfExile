@@ -1,0 +1,3 @@
+public enum CharType {
+    SCION, MARAUDER, WITCH, RANGER, DUELIST, TEMPLAR, SHADOW
+}
