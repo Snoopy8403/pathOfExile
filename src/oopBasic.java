@@ -7,12 +7,12 @@ public class oopBasic {
 //        System.out.println("A nap helyes?: " + today.isDayValid());
 //        System.out.println("ez egy szökőév?: " + today.isLeapYear());
 //
-//        Date yearToCheck = new Date();
-//        yearToCheck.setMonth(1);
-//        yearToCheck.setDay(1);
-//        for (int year = 1900; year <= 2100; year++){
-//            yearToCheck.setYear(year);
-//            System.out.println(yearToCheck.getYear() + (yearToCheck.isLeapYear() ? " szökőév" : " nem szökőév"));
-//        }
+       Date yearToCheck = new Date();
+       yearToCheck.setMonth(1);
+        yearToCheck.setDay(1);
+        for (int year = 1900; year <= 2100; year++){
+            yearToCheck.setYear(year);
+            System.out.println(yearToCheck.getYear() + (yearToCheck.isLeapYear() ? " szökőév" : " nem szökőév"));
+        }
     }
 }
