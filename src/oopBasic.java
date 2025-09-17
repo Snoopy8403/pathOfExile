@@ -1,6 +1,7 @@
 public class oopBasic {
     public static void main(String[] args) {
         Date today = new Date(2017, 7, 9);
+        DateTime now = new DateTime(2020, 8, 1, 18, 12, 44);
 
         //
 //        System.out.println("A hónap helyes?: " + today.isMonthValid());
