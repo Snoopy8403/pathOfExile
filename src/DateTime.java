@@ -14,23 +14,41 @@ public class DateTime extends Date{
         return hour;
     }
 
-    public void setHour(int hour) {
-        this.hour = hour;
-    }
-
     public int getSecond() {
         return second;
-    }
-
-    public void setSecond(int second) {
-        this.second = second;
     }
 
     public int getMinute() {
         return minute;
     }
 
-    public void setMinute(int minute) {
-        this.minute = minute;
+    public void incrementSecond(){
+        second++;
+                if(!isSecondValid()){
+                    second = 0;
+                    minute++;
+                    if (!isMinuteValid()){
+                        minute = 0;
+                        hour++;
+                        if (!isHourValid()){
+                            hour = 0;
+                            incrementDay();
+                        }
+                    }
+                }
     }
+
+    public boolean isHourValid(){
+        return hour >= 0 && hour <= 23;
+    }
+
+    public boolean isMinuteValid(){
+        return minute >= 0 && minute <= 59;
+    }
+
+    public boolean isSecondValid(){
+        return second >= 0 && second <= 59;
+    }
+
+
 }

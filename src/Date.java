@@ -20,24 +20,54 @@ public class Date {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public int getMonth() {
         return month;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
     }
 
     public int getDay() {
         return day;
     }
 
-    public void setDay(int day) {
-        this.day = day;
+    public void incrementDay(){
+        day++;
+        if (!isDayValid()){
+            month++;
+            day = 1;
+            if (!isMonthValid()){
+                month = 1;
+                year++;
+            }
+        }
+    }
+
+    public void decrementDay(){
+        day--;
+        if (!isDayValid()){
+            month--;
+            if (!isMonthValid()){
+                month = 12;
+                year--;
+            }
+            day = getLastDayOfMonth();
+        }
+    }
+
+    private int getLastDayOfMonth() {
+        return switch (month){
+            case 1 -> 31;
+            case 2 -> isLeapYear() ? 29 : 28;
+            case 3 -> 31;
+            case 4 -> 30;
+            case 5 -> 31;
+            case 6 -> 30;
+            case 7 -> 31;
+            case 8 -> 31;
+            case 9 -> 30;
+            case 10 -> 31;
+            case 11 -> 30;
+            case 12 -> 31;
+            default -> 30;
+        };
     }
 
     public boolean isDayValid(){
