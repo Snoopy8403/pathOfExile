@@ -1,4 +1,4 @@
-public class DateTime extends Date{
+public class DateTime extends Date {
     private int hour;
     private int minute;
     private int second;
@@ -22,31 +22,63 @@ public class DateTime extends Date{
         return minute;
     }
 
-    public void incrementSecond(){
+    public void incrementSecond() {
         second++;
-                if(!isSecondValid()){
-                    second = 0;
-                    minute++;
-                    if (!isMinuteValid()){
-                        minute = 0;
-                        hour++;
-                        if (!isHourValid()){
-                            hour = 0;
-                            incrementDay();
-                        }
-                    }
-                }
+        if (!isSecondValid()) {
+            second = 0;
+            incrementMinute();
+        }
     }
 
-    public boolean isHourValid(){
+    public void decrementSecond() {
+        second--;
+        if (!isSecondValid()) {
+            second = 59;
+            decrementMinute();
+        }
+    }
+
+    public void incrementMinute() {
+        minute++;
+        if (!isMinuteValid()) {
+            minute = 0;
+            incrementHour();
+        }
+    }
+
+    public void decrementMinute() {
+        minute--;
+        if (!isMinuteValid()) {
+            minute = 59;
+            decrementHour();
+        }
+    }
+
+    public void incrementHour(){
+        hour++;
+        if (!isHourValid()){
+            hour =  0;
+            incrementDay();
+        }
+    }
+
+    public void decrementHour(){
+        hour--;
+        if (!isHourValid()){
+            hour =  23;
+            decrementDay();
+        }
+    }
+
+    public boolean isHourValid() {
         return hour >= 0 && hour <= 23;
     }
 
-    public boolean isMinuteValid(){
+    public boolean isMinuteValid() {
         return minute >= 0 && minute <= 59;
     }
 
-    public boolean isSecondValid(){
+    public boolean isSecondValid() {
         return second >= 0 && second <= 59;
     }
 

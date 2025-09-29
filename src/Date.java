@@ -31,23 +31,39 @@ public class Date {
     public void incrementDay(){
         day++;
         if (!isDayValid()){
-            month++;
             day = 1;
-            if (!isMonthValid()){
-                month = 1;
-                year++;
-            }
+            incrementMonth();
         }
+    }
+
+    public void incrementMonth(){
+        month++;
+        if (!isMonthValid()){
+            month = 1;
+            year++;
+        }
+    }
+
+    public void decrementMonth(){
+        month--;
+        if (!isMonthValid()){
+            month = 12;
+            year--;
+        }
+    }
+
+    public void incrementYear(){
+     year++;
+    }
+
+    public void decrementYear(){
+        year--;
     }
 
     public void decrementDay(){
         day--;
         if (!isDayValid()){
-            month--;
-            if (!isMonthValid()){
-                month = 12;
-                year--;
-            }
+            decrementMonth();
             day = getLastDayOfMonth();
         }
     }
